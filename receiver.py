@@ -25,9 +25,9 @@ db = firestore.client()
 
 # venue_id, IP, Port
 venue_id = "D9AN6WFLYpEdGDVOfSa5"
-IP = '127.0.0.1'
-MAX_PORT = 7400
-OF_PORT = 8000
+# IP = '127.0.0.1'
+# MAX_PORT = 7400
+# OF_PORT = 8000
 
 track_count = 1
 
@@ -137,7 +137,7 @@ def on_snapshot(col_snapshot, changes, read_time):
 # watch the collection
 tracks_ref = db.collection('venues').document(venue_id).collection("tracks")
 query_watch = tracks_ref.on_snapshot(on_snapshot)
-of_client = udp_client.UDPClient(IP, OF_PORT)
+# of_client = udp_client.UDPClient(IP, OF_PORT)
 
 event = threading.Event()
 

@@ -1,31 +1,31 @@
 import os
 import pydub
 
-import torch
-import torchaudio
-import openunmix
-from openunmix import predict
-from openunmix import data
+# import torch
+# import torchaudio
+# import openunmix
+# from openunmix import predict
+# from openunmix import data
 
 import loopextractor2
 
 
-def separate_to_stems(input_file, output_dir):
-    separator = openunmix.umxl()
+# def separate_to_stems(input_file, output_dir):
+#     separator = openunmix.umxl()
 
-    audio, rate = data.load_audio(input_file)
-    estimates = predict.separate(audio, rate)
+#     audio, rate = data.load_audio(input_file)
+#     estimates = predict.separate(audio, rate)
 
-    file_name = os.path.splitext(os.path.basename(input_file))[0]
+#     file_name = os.path.splitext(os.path.basename(input_file))[0]
 
-    os.makedirs(output_dir, exist_ok=True)
-    for target, estimate in estimates.items():
-        target_path = f"{output_dir}/{target}/{target}_{file_name}.wav"
-        torchaudio.save(
-            target_path,
-            torch.squeeze(estimate).to("cpu"),
-            sample_rate=separator.sample_rate,
-        )
+#     os.makedirs(output_dir, exist_ok=True)
+#     for target, estimate in estimates.items():
+#         target_path = f"{output_dir}/{target}/{target}_{file_name}.wav"
+#         torchaudio.save(
+#             target_path,
+#             torch.squeeze(estimate).to("cpu"),
+#             sample_rate=separator.sample_rate,
+#         )
 
 
 def create_loop(audio_path, track_title, key):

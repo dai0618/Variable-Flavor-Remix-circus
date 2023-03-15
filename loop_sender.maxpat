@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-58",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 282.0, 619.0, 118.0, 22.0 ],
+					"text" : "destrect 0 0 100 100"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "button",
 					"numinlets" : 1,
@@ -59,8 +71,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1379.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 942.0, 545.0, 275.0, 40.0 ],
-					"text" : "エンドレス"
+					"presentation_rect" : [ 888.0, 550.0, 275.0, 40.0 ],
+					"text" : "忘れられないの"
 				}
 
 			}
@@ -73,7 +85,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1070.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 938.25, 384.0, 275.0, 40.0 ],
+					"presentation_rect" : [ 884.25, 389.0, 275.0, 40.0 ],
 					"text" : "Flare"
 				}
 
@@ -87,7 +99,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 763.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 938.25, 244.0, 275.0, 40.0 ],
+					"presentation_rect" : [ 884.25, 249.0, 275.0, 40.0 ],
 					"text" : "Aoi"
 				}
 
@@ -96,13 +108,15 @@
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-96",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 465.0, 519.0, 275.0, 40.0 ],
+					"patching_rect" : [ 465.0, 519.0, 275.0, 70.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 305.5, 222.0, 275.0, 40.0 ],
-					"text" : "VinylWords"
+					"presentation_linecount" : 2,
+					"presentation_rect" : [ 888.0, 79.5, 275.0, 70.0 ],
+					"text" : "さよならはエモーション"
 				}
 
 			}
@@ -115,7 +129,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1379.5, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 305.5, 552.5, 275.0, 40.0 ],
+					"presentation_rect" : [ 251.5, 557.5, 275.0, 40.0 ],
 					"text" : "VinylWords"
 				}
 
@@ -129,7 +143,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1070.5, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 305.5, 381.0, 275.0, 40.0 ],
+					"presentation_rect" : [ 251.5, 386.0, 275.0, 40.0 ],
 					"text" : "Subtitle"
 				}
 
@@ -138,15 +152,13 @@
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-90",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 763.5, 454.0, 275.0, 70.0 ],
+					"patching_rect" : [ 763.5, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 2,
-					"presentation_rect" : [ 938.25, 89.5, 275.0, 70.0 ],
-					"text" : "さよならはエモーション"
+					"presentation_rect" : [ 251.5, 235.5, 275.0, 40.0 ],
+					"text" : "モス"
 				}
 
 			}
@@ -159,8 +171,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 465.0, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 305.5, 89.5, 275.0, 40.0 ],
-					"text" : "Flare"
+					"presentation_rect" : [ 251.5, 94.5, 275.0, 40.0 ],
+					"text" : "Reflects"
 				}
 
 			}
@@ -280,9 +292,9 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 1372.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/エンドレス.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/忘れられないの.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 795.5, 515.0, 111.5, 115.0 ]
+					"presentation_rect" : [ 741.5, 520.0, 111.5, 115.0 ]
 				}
 
 			}
@@ -308,7 +320,7 @@
 					"patching_rect" : [ 1191.0, 713.0, 154.5, 155.0 ],
 					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Flare.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 795.5, 362.0, 111.5, 125.0 ]
+					"presentation_rect" : [ 741.5, 367.0, 111.5, 125.0 ]
 				}
 
 			}
@@ -334,7 +346,7 @@
 					"patching_rect" : [ 1010.0, 713.0, 154.5, 155.0 ],
 					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Aoi.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 795.5, 222.0, 111.5, 119.0 ]
+					"presentation_rect" : [ 741.5, 227.0, 111.5, 119.0 ]
 				}
 
 			}
@@ -358,9 +370,9 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 830.5, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/VinylWords.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/さよならはエモーション.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 799.0, 60.0, 113.5, 122.0 ]
+					"presentation_rect" : [ 745.0, 65.0, 113.5, 122.0 ]
 				}
 
 			}
@@ -386,7 +398,7 @@
 					"patching_rect" : [ 646.0, 713.0, 154.5, 155.0 ],
 					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/VinylWords.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 160.0, 515.0, 112.5, 115.0 ]
+					"presentation_rect" : [ 106.0, 520.0, 112.5, 115.0 ]
 				}
 
 			}
@@ -412,7 +424,7 @@
 					"patching_rect" : [ 465.0, 713.0, 154.5, 155.0 ],
 					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Subtitle.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 160.0, 355.0, 131.5, 109.0 ]
+					"presentation_rect" : [ 106.0, 360.0, 131.5, 109.0 ]
 				}
 
 			}
@@ -436,9 +448,9 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 282.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/さよならはエモーション.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/モス.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 160.0, 195.0, 112.5, 111.0 ]
+					"presentation_rect" : [ 106.0, 200.0, 112.5, 111.0 ]
 				}
 
 			}
@@ -462,9 +474,9 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 100.0, 713.0, 155.0, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Flare.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Reflects.jpeg",
 					"presentation" : 1,
-					"presentation_rect" : [ 160.0, 60.0, 107.5, 99.0 ]
+					"presentation_rect" : [ 106.0, 65.0, 107.5, 99.0 ]
 				}
 
 			}
@@ -539,7 +551,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 977.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 454.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 1199.0, 459.0, 29.5, 22.0 ],
 					"text" : "7"
 				}
 
@@ -553,7 +565,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 943.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 315.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 1199.0, 320.0, 29.5, 22.0 ],
 					"text" : "6"
 				}
 
@@ -567,7 +579,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 907.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 155.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 1199.0, 160.0, 29.5, 22.0 ],
 					"text" : "5"
 				}
 
@@ -581,7 +593,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 872.0, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 608.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 561.0, 613.0, 29.5, 22.0 ],
 					"text" : "4"
 				}
 
@@ -595,7 +607,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 833.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 449.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 561.0, 454.0, 29.5, 22.0 ],
 					"text" : "3"
 				}
 
@@ -609,7 +621,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 799.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 290.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 561.0, 295.0, 29.5, 22.0 ],
 					"text" : "2"
 				}
 
@@ -623,7 +635,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 763.5, 159.0, 29.5, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 150.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 561.0, 155.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -777,7 +789,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 613.0, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 532.0, 82.0, 82.0 ]
+					"presentation_rect" : [ 1199.0, 537.0, 82.0, 82.0 ]
 				}
 
 			}
@@ -805,7 +817,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 547.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 362.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 1199.0, 367.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -833,7 +845,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 476.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 222.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 1199.0, 227.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -861,7 +873,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 402.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1253.0, 66.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 1191.0, 71.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -889,7 +901,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 329.0, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 526.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 561.0, 531.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -917,7 +929,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 263.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 362.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 561.0, 367.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -945,7 +957,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 192.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 207.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 561.0, 211.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -999,7 +1011,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 118.5, 203.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 615.0, 66.0, 78.0, 78.0 ]
+					"presentation_rect" : [ 561.0, 71.0, 78.0, 78.0 ]
 				}
 
 			}
@@ -1016,7 +1028,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 96.5, 417.0, 129.0, 39.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 591.5, 727.0, 437.0, 39.0 ],
+					"presentation_rect" : [ 479.5, 722.0, 437.0, 39.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
@@ -1338,6 +1350,15 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-29", 0 ],
+					"order" : 1,
+					"source" : [ "obj-26", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-58", 0 ],
+					"order" : 0,
 					"source" : [ "obj-26", 0 ]
 				}
 
@@ -1633,6 +1654,70 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-42", 0 ],
+					"order" : 7,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-60", 0 ],
+					"order" : 6,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 0 ],
+					"order" : 5,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-64", 0 ],
+					"order" : 4,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-66", 0 ],
+					"order" : 3,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-68", 0 ],
+					"order" : 2,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-70", 0 ],
+					"order" : 1,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-72", 0 ],
+					"order" : 0,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-60", 0 ],
 					"source" : [ "obj-59", 0 ]
 				}
@@ -1791,6 +1876,13 @@
 				"type" : "iLaX"
 			}
 , 			{
+				"name" : "Reflects.jpeg",
+				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
+				"patcherrelativepath" : "./tmp/artworks",
+				"type" : "JPEG",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "Subtitle.jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
@@ -1812,7 +1904,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "エンドレス.jpeg",
+				"name" : "モス.jpeg",
+				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
+				"patcherrelativepath" : "./tmp/artworks",
+				"type" : "JPEG",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "忘れられないの.jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
 				"type" : "JPEG",

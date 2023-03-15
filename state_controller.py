@@ -4,6 +4,7 @@ Open Sound Control Server/Client and callback function design example.
 2022-11-11
 Atsuya Kobayashi
 """
+import os
 import threading
 from typing import Any, Callable, Dict, List, Optional, Union
 
@@ -15,7 +16,11 @@ import time
 
 from pathlib import Path
 
+from sound_source_separation import separate_loops
+from loop_move_osc import move_loop
+
 track_list = []
+wait_track_list = []
 track_counter = 0
 wait_track_counter = 0
 
@@ -129,10 +134,10 @@ def get_sample_callback(
         if addr == "/get_song":
             print(f"曲名を取得 : {args[0]}")
             track_title = str(args[0])
-            track_list.append(track_title)
             track_counter += 1
 
             if track_counter <= 8:
+                track_list.append(track_title)
                 loops_max_addr = f"/select_loops/{track_counter}"
                 current_dir = Path.cwd()
                 loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[track_counter-1]}/{track_list[track_counter-1]}.wav"))
@@ -143,33 +148,47 @@ def get_sample_callback(
                 artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[track_counter-1]}.jpeg"))
                 sender.send(artworks_max_addr, artwork_path)
                 
-                time.sleep(1)
                 titles_max_addr = f"/select_titles/{track_counter}"
                 sender.send(titles_max_addr, track_list[track_counter-1])
+
+                separate_loops(track_title)
+
+            else:
+                wait_track_list.append(track_title)
 
         elif addr == "/selected_loops":
             print(f"取得した数字 : {args[0]}")
             try:
-                wait_track_counter += 1
                 selected_num = int(args[0])
+                separate_track = track_list[selected_num-1]
+
+                print(wait_track_counter)
+                print(wait_track_list)
+
+                track_list[selected_num-1] = wait_track_list[wait_track_counter]
                 to_max_addr = f"/select_loops/{selected_num}"
                 current_dir = Path.cwd()
-                loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[7+wait_track_counter]}/{track_list[7+wait_track_counter]}.wav"))
+                loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[selected_num-1]}/{track_list[selected_num-1]}.wav"))
                 sender.send(to_max_addr, loop_path)
 
                 artworks_max_addr = f"/select_artworks/{selected_num}"
-                artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[7+wait_track_counter]}.jpeg"))
+                artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[selected_num-1]}.jpeg"))
                 sender.send(artworks_max_addr, artwork_path)
 
-                time.sleep(1)
                 titles_max_addr = f"/select_titles/{selected_num}"
-                sender.send(titles_max_addr, track_list[7+wait_track_counter])
+                sender.send(titles_max_addr, track_list[selected_num-1])
+
+                separate_loops(separate_track)
+
+                wait_track_counter += 1
 
             except:
-                print("out of range")
+                print("out of range or failed sound source separation")
                 
         elif addr == "/track_move":
             print(f"曲の移動 : {args[0]}")
+            move_track = str(args[0])
+            move_loop(move_track)
 
     return callback_func
 
