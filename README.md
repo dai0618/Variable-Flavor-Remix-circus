@@ -1,4 +1,4 @@
-# Reciever 
+# Variable-Flavor-Remix-circus
 
 ## 概要
 Variable Flavor Remixのパフォーマンス用リポジトリ
