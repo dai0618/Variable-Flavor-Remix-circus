@@ -4,8 +4,12 @@
 Variable Flavor Remixのパフォーマンス用リポジトリ
 
 ## 実行
+state_controller.pyとreciever.pyをそれぞれ実行
 ```python
-reciever.pyを実行
+python state_controller.py
+```
+```python
+python reciever.py
 ```
 
 ## OSC
