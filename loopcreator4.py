@@ -78,7 +78,7 @@ def create_loop(audio_path, track_title, key):
 
     print('Created loop')
 
-    return output_path
+    return track_title
 
     # 現在のloopのパス
     # loops_path = f"{separated_loops_root_dir}/{key}/{track_title}"

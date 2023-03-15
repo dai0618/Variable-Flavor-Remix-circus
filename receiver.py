@@ -52,7 +52,8 @@ def on_snapshot(col_snapshot, changes, read_time):
             try:
                 track = change.document.to_dict()
 
-                track_title = track['title']
+                track_title = track['title'].replace(" ","")
+                track_title = track_title.replace("/","")
                 track_id = track['spotify_track_id']
                 bpm = track['bpm']
                 key = track['key']
@@ -72,11 +73,11 @@ def on_snapshot(col_snapshot, changes, read_time):
                     urllib.request.urlretrieve(preview_url, saved_track_path)
 
                 # create loops from preview track
-                output_path = loopcreator4.create_loop(saved_track_path, track_title, key)
+                output = loopcreator4.create_loop(saved_track_path, track_title, key)
 
                 # download artwork
                 artwork_url = track['artwork_url_lg']
-                artwork_path = f"{artworks_dir}/{track_id}.jpeg"
+                artwork_path = f"{artworks_dir}/{track_title}.jpeg"
                 urllib.request.urlretrieve(artwork_url, artwork_path)
                 artwork_abs_path = os.path.abspath(artwork_path)
 
@@ -95,7 +96,7 @@ def on_snapshot(col_snapshot, changes, read_time):
                 with open(json_path, 'w') as outfile:
                     json.dump(track_data, outfile, ensure_ascii=False)
 
-                client = udp_client.UDPClient('127.0.0.1', 7777)
+                client = udp_client.UDPClient('127.0.0.1', 9999)
 
                 # for stem in ['bass', 'drums', 'other', 'vocals']:
                 #     msg = OscMessageBuilder(address=f"/{track_count}/{stem}")
@@ -108,15 +109,15 @@ def on_snapshot(col_snapshot, changes, read_time):
                 # bpm_msg.add_arg(bpm)
                 # client.send(bpm_msg.build())
 
-                msg = OscMessageBuilder(address=f"/loop_path")
-                msg.add_arg(f"/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/reciever/{output_path}")
+                msg = OscMessageBuilder(address=f"/get_song")
+                msg.add_arg(output)
                 m = msg.build()
 
                 client.send(m)
 
-                of_msg = OscMessageBuilder(address="/new_json")  # この数字を1から4でループするで大丈夫ですかね？
-                of_msg.add_arg(os.path.abspath(json_path))
-                of_client.send(of_msg.build())
+                # of_msg = OscMessageBuilder(address="/new_json")  # この数字を1から4でループするで大丈夫ですかね？
+                # of_msg.add_arg(os.path.abspath(json_path))
+                # of_client.send(of_msg.build())
 
                 # of_track_num_msg = OscMessageBuilder(address='/nextTrackNum')
                 # of_track_num_msg.add_arg(track_count)
