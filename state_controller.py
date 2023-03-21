@@ -17,10 +17,12 @@ import time
 from pathlib import Path
 
 from sound_source_separation import separate_loops
+from sound_source_separation import separate_loops_ex
 from loop_move_osc import move_loop
 
 track_list = []
 wait_track_list = []
+artwork_list = [0,0,0,0,0,0,0,0]
 track_counter = 0
 wait_track_counter = 0
 
@@ -122,7 +124,7 @@ def get_sample_callback(
     # 例) model = Model.load_model(given_path)
 
     def callback_func(addr: str, *args: Any):
-        global track_list, track_counter, wait_track_counter
+        global track_list, track_counter, wait_track_counter, artwork_list
         """Actual callback function: 実際にOSCを受け取って呼ばれる関数
 
         Args:
@@ -132,35 +134,41 @@ def get_sample_callback(
         print("received:", addr, args)
 
         if addr == "/get_song":
-            print(f"曲名を取得 : {args[0]}")
-            track_title = str(args[0])
-            track_counter += 1
+            try:
+                print(f"曲名を取得 : {args[0]}")
+                track_title = str(args[0])
+                track_counter += 1
 
-            if track_counter <= 8:
-                track_list.append(track_title)
-                loops_max_addr = f"/select_loops/{track_counter}"
-                current_dir = Path.cwd()
-                loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[track_counter-1]}/{track_list[track_counter-1]}.wav"))
-                print(loop_path)
-                sender.send(loops_max_addr, loop_path)
+                separate_loops_ex(track_title)
 
-                artworks_max_addr = f"/select_artworks/{track_counter}"
-                artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[track_counter-1]}.jpeg"))
-                sender.send(artworks_max_addr, artwork_path)
-                
-                titles_max_addr = f"/select_titles/{track_counter}"
-                sender.send(titles_max_addr, track_list[track_counter-1])
+                if track_counter <= 8:
+                    track_list.append(track_title)
+                    loops_max_addr = f"/select_loops/{track_counter}"
+                    current_dir = Path.cwd()
+                    loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[track_counter-1]}/{track_list[track_counter-1]}.wav"))
+                    print(loop_path)
+                    sender.send(loops_max_addr, loop_path)
 
-                separate_loops(track_title)
+                    artworks_max_addr = f"/select_artworks/{track_counter}"
+                    artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[track_counter-1]}.jpeg"))
+                    sender.send(artworks_max_addr, artwork_path)
+                    
+                    titles_max_addr = f"/select_titles/{track_counter}"
+                    sender.send(titles_max_addr, track_list[track_counter-1])
 
-            else:
-                wait_track_list.append(track_title)
+                    separate_loops(track_title)
+
+                else:
+                    wait_track_list.append(track_title)
+            except:
+                print("エラー発生")
 
         elif addr == "/selected_loops":
             print(f"取得した数字 : {args[0]}")
             try:
                 selected_num = int(args[0])
                 separate_track = track_list[selected_num-1]
+                print(separate_track)
 
                 print(wait_track_counter)
                 print(wait_track_list)
@@ -186,9 +194,28 @@ def get_sample_callback(
                 print("out of range or failed sound source separation")
                 
         elif addr == "/track_move":
-            print(f"曲の移動 : {args[0]}")
-            move_track = str(args[0])
-            move_loop(move_track)
+            try:
+                print(f"曲の移動 : {args[0]}")
+                move_track = str(args[0])
+                move_loop(move_track)
+
+                artwork_title = args[0].replace("bass_","")
+                artwork_title = artwork_title.replace("drums_","")
+                artwork_title = artwork_title.replace("other_","")
+                artwork_title = artwork_title.replace("vocals_","")
+                
+                for i in range(0,8):
+                    if args[1] == i+1:
+                        if artwork_list[i] == artwork_title:
+                            print("same artwork!!")
+                        else:
+                            artwork_list[i] = artwork_title
+                            print(artwork_title,args[1])
+                            print(artwork_list)
+
+            except:
+                print("already exist!!")
+                
 
     return callback_func
 

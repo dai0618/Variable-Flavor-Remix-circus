@@ -14,6 +14,11 @@ def move_loop(file_name):
         f"{separated_loops_dir}/*/{file_name}.*",
         recursive=True
     )
+    try:
+        os.remove(f"{played_loops_dir}/{file_name}.wav")
+    except:
+        print("can't remove!!")
+
     
     if target_loop:
         target_loop_path = target_loop[0]

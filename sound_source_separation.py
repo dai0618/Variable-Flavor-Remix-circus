@@ -46,4 +46,27 @@ def separate_loops(track_title):
 
         separate_to_stems(wav_abs_filepath, separated_loops_root_stem)
 
+def separate_loops_ex(track_title):
+    os.makedirs("./tmp/separated_loops", exist_ok=True)
+
+    separated_loops_root_stem = "./tmp/separated_loops"
+    loops_root_dir = './tmp/loops'
+
+    loops_dir = f"{loops_root_dir}/{track_title}"
+
+    os.makedirs(separated_loops_root_stem, exist_ok=True)
+    wav_preview_dir = './tmp/wav_preview'
+
+    loops_paths = os.listdir(loops_dir)
+
+    for i, file_path in enumerate(loops_paths):
+        # run openunmixer
+        sound = pydub.AudioSegment.from_mp3(f"{loops_dir}/{file_path}")
+        wav_path = f"{wav_preview_dir}/{track_title}.wav"
+        sound.export(wav_path, format="wav")
+        
+        wav_abs_filepath = os.path.abspath(wav_path)
+
+        separate_to_stems(wav_abs_filepath, separated_loops_root_stem)
+
     

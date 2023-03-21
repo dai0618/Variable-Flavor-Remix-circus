@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,6 +40,44 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-75",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 398.25, 84.0, 423.0, 22.0 ],
+					"text" : "pic /Users/dai/Desktop/project/vfr-performance-reciever-main-icc/example.png"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-73",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 465.0, 84.0, 29.5, 22.0 ],
+					"text" : "set"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-41",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 398.0, 27.0, 24.0, 24.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 398.0, 27.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-58",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -71,8 +109,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1379.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 888.0, 550.0, 275.0, 40.0 ],
-					"text" : "忘れられないの"
+					"presentation_rect" : [ 888.0, 550.0, 275.0, 40.0 ]
 				}
 
 			}
@@ -85,8 +122,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1070.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 884.25, 389.0, 275.0, 40.0 ],
-					"text" : "Flare"
+					"presentation_rect" : [ 884.25, 389.0, 275.0, 40.0 ]
 				}
 
 			}
@@ -99,8 +135,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 763.5, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 884.25, 249.0, 275.0, 40.0 ],
-					"text" : "Aoi"
+					"presentation_rect" : [ 884.25, 249.0, 275.0, 40.0 ]
 				}
 
 			}
@@ -108,15 +143,13 @@
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-96",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 465.0, 519.0, 275.0, 70.0 ],
+					"patching_rect" : [ 465.0, 519.0, 275.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 2,
-					"presentation_rect" : [ 888.0, 79.5, 275.0, 70.0 ],
-					"text" : "さよならはエモーション"
+					"presentation_rect" : [ 888.0, 79.5, 275.0, 40.0 ],
+					"text" : "Can'tStop"
 				}
 
 			}
@@ -124,13 +157,15 @@
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-92",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1379.5, 454.0, 275.0, 40.0 ],
+					"patching_rect" : [ 1379.5, 454.0, 275.0, 74.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 251.5, 557.5, 275.0, 40.0 ],
-					"text" : "VinylWords"
+					"presentation_linecount" : 2,
+					"presentation_rect" : [ 251.5, 557.5, 275.0, 74.0 ],
+					"text" : "Can'tStop(Seungmin,I.N)"
 				}
 
 			}
@@ -138,13 +173,15 @@
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-91",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1070.5, 454.0, 275.0, 40.0 ],
+					"patching_rect" : [ 1070.5, 454.0, 275.0, 74.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 251.5, 386.0, 275.0, 40.0 ],
-					"text" : "Subtitle"
+					"presentation_linecount" : 2,
+					"presentation_rect" : [ 251.5, 386.0, 275.0, 74.0 ],
+					"text" : "September-DJKOMORIRemix"
 				}
 
 			}
@@ -158,7 +195,7 @@
 					"patching_rect" : [ 763.5, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 251.5, 235.5, 275.0, 40.0 ],
-					"text" : "モス"
+					"text" : "September"
 				}
 
 			}
@@ -172,7 +209,7 @@
 					"patching_rect" : [ 465.0, 454.0, 275.0, 40.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 251.5, 94.5, 275.0, 40.0 ],
-					"text" : "Reflects"
+					"text" : "Data.Matrix"
 				}
 
 			}
@@ -292,7 +329,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 1372.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/忘れられないの.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/example.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 741.5, 520.0, 111.5, 115.0 ]
 				}
@@ -318,7 +355,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 1191.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Flare.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/example.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 741.5, 367.0, 111.5, 125.0 ]
 				}
@@ -344,7 +381,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 1010.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Aoi.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/example.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 741.5, 227.0, 111.5, 119.0 ]
 				}
@@ -370,7 +407,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 830.5, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/さよならはエモーション.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Can'tStop.jpeg",
 					"presentation" : 1,
 					"presentation_rect" : [ 745.0, 65.0, 113.5, 122.0 ]
 				}
@@ -396,7 +433,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 646.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/VinylWords.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Can'tStop(Seungmin,I.N).jpeg",
 					"presentation" : 1,
 					"presentation_rect" : [ 106.0, 520.0, 112.5, 115.0 ]
 				}
@@ -422,7 +459,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 465.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Subtitle.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/September-DJKOMORIRemix.jpeg",
 					"presentation" : 1,
 					"presentation_rect" : [ 106.0, 360.0, 131.5, 109.0 ]
 				}
@@ -448,7 +485,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 282.0, 713.0, 154.5, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/モス.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/September.jpeg",
 					"presentation" : 1,
 					"presentation_rect" : [ 106.0, 200.0, 112.5, 111.0 ]
 				}
@@ -474,7 +511,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 100.0, 713.0, 155.0, 155.0 ],
-					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Reflects.jpeg",
+					"pic" : "/Users/dai/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks/Data.Matrix.jpeg",
 					"presentation" : 1,
 					"presentation_rect" : [ 106.0, 65.0, 107.5, 99.0 ]
 				}
@@ -1561,6 +1598,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-73", 0 ],
+					"order" : 0,
+					"source" : [ "obj-41", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-75", 0 ],
+					"order" : 1,
+					"source" : [ "obj-41", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-43", 0 ]
 				}
@@ -1774,6 +1827,134 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-89", 0 ],
+					"order" : 7,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-90", 0 ],
+					"order" : 5,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-91", 0 ],
+					"order" : 3,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-92", 0 ],
+					"order" : 1,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-93", 0 ],
+					"order" : 0,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-94", 0 ],
+					"order" : 2,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-95", 0 ],
+					"order" : 4,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-96", 0 ],
+					"order" : 6,
+					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-42", 0 ],
+					"order" : 7,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-60", 0 ],
+					"order" : 6,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 0 ],
+					"order" : 5,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-64", 0 ],
+					"order" : 4,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-66", 0 ],
+					"order" : 3,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-68", 0 ],
+					"order" : 2,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-70", 0 ],
+					"order" : 1,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-72", 0 ],
+					"order" : 0,
+					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-43", 0 ],
 					"source" : [ "obj-8", 0 ]
 				}
@@ -1858,14 +2039,21 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Aoi.jpeg",
+				"name" : "Can'tStop(Seungmin,I.N).jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "Flare.jpeg",
+				"name" : "Can'tStop.jpeg",
+				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
+				"patcherrelativepath" : "./tmp/artworks",
+				"type" : "JPEG",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "Data.Matrix.jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
 				"type" : "JPEG",
@@ -1876,45 +2064,24 @@
 				"type" : "iLaX"
 			}
 , 			{
-				"name" : "Reflects.jpeg",
+				"name" : "September-DJKOMORIRemix.jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "Subtitle.jpeg",
+				"name" : "September.jpeg",
 				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
 				"patcherrelativepath" : "./tmp/artworks",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "VinylWords.jpeg",
-				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
-				"patcherrelativepath" : "./tmp/artworks",
-				"type" : "JPEG",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "さよならはエモーション.jpeg",
-				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
-				"patcherrelativepath" : "./tmp/artworks",
-				"type" : "JPEG",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "モス.jpeg",
-				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
-				"patcherrelativepath" : "./tmp/artworks",
-				"type" : "JPEG",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "忘れられないの.jpeg",
-				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc/circus/tmp/artworks",
-				"patcherrelativepath" : "./tmp/artworks",
-				"type" : "JPEG",
+				"name" : "example.png",
+				"bootpath" : "~/Desktop/project/vfr-performance-reciever-main-icc",
+				"patcherrelativepath" : "..",
+				"type" : "PNG",
 				"implicit" : 1
 			}
  ],
