@@ -33,7 +33,7 @@ track_count = 1
 
 # Create a callback on_snapshot function to capture changes
 def on_snapshot(col_snapshot, changes, read_time):
-    global track_count
+    global track_count, switch
     need_initial_loops = True
 
     # loading initial 10 songs
@@ -110,7 +110,8 @@ def on_snapshot(col_snapshot, changes, read_time):
                 # client.send(bpm_msg.build())
 
                 msg = OscMessageBuilder(address=f"/get_song")
-                msg.add_arg(output)
+                msg.add_arg(str(output))
+                msg.add_arg(artwork_url)
                 m = msg.build()
 
                 client.send(m)

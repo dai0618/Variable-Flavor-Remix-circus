@@ -11,6 +11,7 @@ from typing import Any, Callable, Dict, List, Optional, Union
 from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import BlockingOSCUDPServer
+from pythonosc.osc_message_builder import OscMessageBuilder
 
 import time
 
@@ -23,8 +24,11 @@ from loop_move_osc import move_loop
 track_list = []
 wait_track_list = []
 artwork_list = [0,0,0,0,0,0,0,0]
+artwork_dict = {}
 track_counter = 0
 wait_track_counter = 0
+
+switch = 1
 
 class OSCServer:
     def __init__(self, ip: str, port: int) -> None:
@@ -124,7 +128,7 @@ def get_sample_callback(
     # 例) model = Model.load_model(given_path)
 
     def callback_func(addr: str, *args: Any):
-        global track_list, track_counter, wait_track_counter, artwork_list
+        global track_list, track_counter, wait_track_counter, artwork_list, artwork_dict, switch, wait_track_list
         """Actual callback function: 実際にOSCを受け取って呼ばれる関数
 
         Args:
@@ -137,61 +141,83 @@ def get_sample_callback(
             try:
                 print(f"曲名を取得 : {args[0]}")
                 track_title = str(args[0])
+                track_url = str(args[1])
+                artwork_dict[track_title] = track_url
                 track_counter += 1
 
-                separate_loops_ex(track_title)
+                if switch == 1:
+                    separate_loops_ex(track_title)
 
-                if track_counter <= 8:
-                    track_list.append(track_title)
-                    loops_max_addr = f"/select_loops/{track_counter}"
-                    current_dir = Path.cwd()
-                    loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[track_counter-1]}/{track_list[track_counter-1]}.wav"))
-                    print(loop_path)
-                    sender.send(loops_max_addr, loop_path)
-
-                    artworks_max_addr = f"/select_artworks/{track_counter}"
-                    artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[track_counter-1]}.jpeg"))
-                    sender.send(artworks_max_addr, artwork_path)
-                    
-                    titles_max_addr = f"/select_titles/{track_counter}"
-                    sender.send(titles_max_addr, track_list[track_counter-1])
-
-                    separate_loops(track_title)
-
-                else:
+                if switch == 2:
                     wait_track_list.append(track_title)
+                    print(wait_track_list)
+
+                # if track_counter <= 8:
+                #     track_list.append(track_title)
+                #     loops_max_addr = f"/select_loops/{track_counter}"
+                #     current_dir = Path.cwd()
+                #     loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[track_counter-1]}/{track_list[track_counter-1]}.wav"))
+                #     print(loop_path)
+                #     sender.send(loops_max_addr, loop_path)
+
+                #     artworks_max_addr = f"/select_artworks/{track_counter}"
+                #     artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[track_counter-1]}.jpeg"))
+                #     sender.send(artworks_max_addr, artwork_path)
+                    
+                #     titles_max_addr = f"/select_titles/{track_counter}"
+                #     sender.send(titles_max_addr, track_list[track_counter-1])
+
+                #     separate_loops(track_title)
+
+                # else:
+                #     # separate_loops_ex(track_title)
+                #     wait_track_list.append(track_title)
             except:
                 print("エラー発生")
 
         elif addr == "/selected_loops":
             print(f"取得した数字 : {args[0]}")
-            try:
-                selected_num = int(args[0])
-                separate_track = track_list[selected_num-1]
-                print(separate_track)
+            selected_num = int(args[0])
+            if selected_num == 1:
+                for wait_trakck in wait_track_list:
+                    try:
+                        separate_loops_ex(wait_trakck)
+                    except:
+                        print("can't separate!")
+                wait_track_list = []
+                switch = 1
+            elif selected_num == 2:
+                switch = 2
+            elif selected_num == 3:
+                wait_track_list = []
+                switch = 1
+            # try:
+            #     selected_num = int(args[0])
+            #     separate_track = track_list[selected_num-1]
+            #     print(separate_track)
 
-                print(wait_track_counter)
-                print(wait_track_list)
+            #     print(wait_track_counter)
+            #     print(wait_track_list)
 
-                track_list[selected_num-1] = wait_track_list[wait_track_counter]
-                to_max_addr = f"/select_loops/{selected_num}"
-                current_dir = Path.cwd()
-                loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[selected_num-1]}/{track_list[selected_num-1]}.wav"))
-                sender.send(to_max_addr, loop_path)
+            #     track_list[selected_num-1] = wait_track_list[wait_track_counter]
+            #     to_max_addr = f"/select_loops/{selected_num}"
+            #     current_dir = Path.cwd()
+            #     loop_path = str(current_dir.joinpath(f"tmp/loops/{track_list[selected_num-1]}/{track_list[selected_num-1]}.wav"))
+            #     sender.send(to_max_addr, loop_path)
 
-                artworks_max_addr = f"/select_artworks/{selected_num}"
-                artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[selected_num-1]}.jpeg"))
-                sender.send(artworks_max_addr, artwork_path)
+            #     artworks_max_addr = f"/select_artworks/{selected_num}"
+            #     artwork_path = str(current_dir.joinpath(f"tmp/artworks/{track_list[selected_num-1]}.jpeg"))
+            #     sender.send(artworks_max_addr, artwork_path)
 
-                titles_max_addr = f"/select_titles/{selected_num}"
-                sender.send(titles_max_addr, track_list[selected_num-1])
+            #     titles_max_addr = f"/select_titles/{selected_num}"
+            #     sender.send(titles_max_addr, track_list[selected_num-1])
 
-                separate_loops(separate_track)
+            #     separate_loops(separate_track)
 
-                wait_track_counter += 1
+            #     wait_track_counter += 1
 
-            except:
-                print("out of range or failed sound source separation")
+            # except:
+            #     print("out of range or failed sound source separation")
                 
         elif addr == "/track_move":
             try:
@@ -199,22 +225,43 @@ def get_sample_callback(
                 move_track = str(args[0])
                 move_loop(move_track)
 
+            except:
+                print("already exist!!")
+                
+            try:
                 artwork_title = args[0].replace("bass_","")
                 artwork_title = artwork_title.replace("drums_","")
                 artwork_title = artwork_title.replace("other_","")
                 artwork_title = artwork_title.replace("vocals_","")
-                
                 for i in range(0,8):
                     if args[1] == i+1:
                         if artwork_list[i] == artwork_title:
                             print("same artwork!!")
                         else:
                             artwork_list[i] = artwork_title
+                            artwork_path = f'./tmp/artworks/{artwork_title}.jpeg'
+
+                            artwork_url = str(artwork_dict[artwork_title])
+
+                            print("artwork_url!!!", artwork_url)
+
+                            artworks_vis_addr = "/cover_art"
+
+                            client = udp_client.UDPClient('127.0.0.1', 7777)
+
+                            msg = OscMessageBuilder(address=artworks_vis_addr)
+                            msg.add_arg(artwork_url)
+                            msg.add_arg(args[1])
+                            msg.add_arg(artwork_title)
+                            m = msg.build()
+
+                            client.send(m)
+
                             print(artwork_title,args[1])
                             print(artwork_list)
 
             except:
-                print("already exist!!")
+                print("cover art failed")
                 
 
     return callback_func

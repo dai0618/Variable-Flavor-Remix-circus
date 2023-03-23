@@ -47,10 +47,16 @@ def separate_loops(track_title):
         separate_to_stems(wav_abs_filepath, separated_loops_root_stem)
 
 def separate_loops_ex(track_title):
-    os.makedirs("./tmp/separated_loops", exist_ok=True)
-
     separated_loops_root_stem = "./tmp/separated_loops"
     loops_root_dir = './tmp/loops'
+
+    parts = ['bass', 'drums', 'other', 'vocals']
+    os.makedirs(separated_loops_root_stem, exist_ok=True)
+    # loops_key_dir_stem = f"{separated_loops_root_stem}/{str(key)}"
+    # os.makedirs(loops_key_dir_stem, exist_ok=True)
+    for part in parts:
+        loops_key_dir_stem_part = f"{separated_loops_root_stem}/{part}"
+        os.makedirs(loops_key_dir_stem_part, exist_ok=True)
 
     loops_dir = f"{loops_root_dir}/{track_title}"
 

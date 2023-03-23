@@ -6,7 +6,8 @@ import shutil
 
 
 def move_loop(file_name):
-    separated_loops_dir = './tmp/separated_loops_stem'
+    separated_loops_dir = './tmp/separated_loops' #ここを変更
+    # separated_loops_dir = './tmp/separated_loops_stem' #ここを変更
     played_loops_dir = './tmp/played_loops'
     os.makedirs(played_loops_dir, exist_ok=True)
 
